@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ota_status">
+        <item>OTA Preparing</item>
+        <item>ON OTA</item>
+        <item>OTA Success</item>
+        <item>OTA Failed</item>
+    </string-array>
+</resources>

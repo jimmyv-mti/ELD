@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "com.android.eldbox_serial"
+        minSdkVersion 22
+        targetSdkVersion 33
+        versionCode 32
+        versionName "2.2.4c-COM"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles 'proguard-support-v7-appcompat.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation(name: "eldbox_api", ext: "aar")
+    implementation 'com.zzhoujay.materialcolors:materialcolors:1.0.0'
+
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+    //添加ROOM 数据框架支持
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    //use for get ntp time
+    implementation 'commons-net:commons-net:3.6'
+    //for request permission
+    implementation 'com.hjq:xxpermissions:6.0'
+    //for toast
+    implementation 'com.hjq:toast:8.0'
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'com.google.android.gms:play-services-location:21.0.1' //Location dependency
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+}

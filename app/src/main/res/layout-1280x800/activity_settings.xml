@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424242"
+    tools:context=".ble_ui.BleSettingsActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:translationZ="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/setting"
+            android:textColor="@color/material_grey_200"
+            android:textSize="30dp" />
+    </Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="32dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <!-- High Precision Odometer -->
+            <TextView
+                android:id="@+id/tv_high_precision_odometer_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/high_precision_odometer_title"
+                android:layout_marginTop="30dp"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_high_precision_odometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_high_precision_odometer_title"
+                android:layout_alignStart="@+id/btn_sleep_delay"
+                android:singleLine="true"
+                android:text="@string/_zero"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_high_precision_odometer_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" m"
+                android:layout_toRightOf="@id/tv_high_precision_odometer"
+                android:layout_alignBaseline="@+id/tv_high_precision_odometer_title"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <!--  DTC -->
+            <TextView
+                android:id="@+id/tv_dtc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dtc_title"
+                android:layout_below="@id/tv_high_precision_odometer_title"
+                android:layout_marginTop="28dp"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_dtc_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_dtc_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_dtc_title"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/dtc_show" />
+
+            <Button
+                android:id="@+id/btn_dtc_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btn_dtc_show"
+                android:layout_alignStart="@+id/btn_sleep_delay"
+                android:layout_alignBaseline="@id/tv_dtc_title"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/dtc_clear" />
+
+            <!-- Data sync from -->
+
+            <TextView
+                android:id="@+id/tv_data_sync_from_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_below="@id/tv_dtc_title"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/data_sync_begin_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/rgroup_data_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_dtc_title"
+                android:layout_toRightOf="@id/tv_data_sync_from_title"
+                android:layout_marginLeft="50dp">
+
+                <RadioButton
+                    android:id="@+id/rbtn_30min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_data_sync_from_title"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:checked="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/data_sync_30min"
+                    />
+                <RadioButton
+                    android:id="@+id/rbtn_1day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rbtn_30min"
+                    android:layout_alignBaseline="@id/tv_data_sync_from_title"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/data_sync_1day"
+                    />
+                <RadioButton
+                    android:id="@+id/rbtn_3day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rbtn_1day"
+                    android:layout_alignBaseline="@id/tv_data_sync_from_title"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/data_sync_3day"
+                    />
+                <RadioButton
+                    android:id="@+id/rbtn_8day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rbtn_3day"
+                    android:layout_alignBaseline="@id/tv_data_sync_from_title"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/data_sync_8day"
+                    />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_sync_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_dtc_title"
+                android:layout_toEndOf="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_data_sync_from_title"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/data_sync_button" />
+
+            <!-- Export Data -->
+            <TextView
+                android:id="@+id/tv_export_data_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/export_data_title"
+                android:layout_below="@id/tv_data_sync_from_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_export_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_data_sync_from_title"
+                android:layout_toRightOf="@id/tv_export_data_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_export_data_title"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/export_button" />
+
+            <Button
+                android:id="@+id/btn_clear_database"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_data_sync_from_title"
+                android:layout_toRightOf="@id/btn_export_data"
+                android:layout_alignStart="@+id/btn_sleep_delay"
+                android:layout_alignBaseline="@id/tv_export_data_title"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:text="@string/clear_database" />
+
+            <Button
+                android:id="@+id/btn_default_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_path"
+                android:layout_below="@id/tv_data_sync_from_title"
+                android:layout_toRightOf="@id/btn_clear_database"
+                android:layout_alignBaseline="@id/tv_export_data_title"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:visibility="gone"  />
+
+            <TextView
+                android:id="@+id/tv_default_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_data_sync_from_title"
+                android:layout_toRightOf="@id/btn_default_path"
+                android:layout_alignBaseline="@id/tv_export_data_title"
+                android:layout_marginLeft="20dp"
+                android:text="@string/sdcard"
+                android:textColor="@color/material_grey_200"
+                android:visibility="gone" />
+
+            <!-- Time sync -->
+            <TextView
+                android:id="@+id/tv_time_sync_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_export_data_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/time_sync_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_time_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_export_data_title"
+                android:layout_toRightOf="@+id/tv_time_sync_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_time_sync_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/timesync_button"
+                android:textAllCaps="false"
+                android:translationZ="5dp" />
+
+            <!-- Store_Mode -->
+            <TextView
+                android:id="@+id/tv_storage_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_time_sync_title"
+                android:text="@string/storage_mode_title"
+                android:textColor="#ffffff"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:visibility="gone"
+                android:textSize="20sp" />
+
+            <Switch
+                android:id="@+id/switch_store_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_time_sync_title"
+                android:layout_toRightOf="@id/tv_storage_mode"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_storage_mode"
+                android:layout_alignRight="@id/btn_export_data"
+                android:text="@string/always_storage_switch"
+                android:visibility="gone"
+                android:textColor="#ffffff" />
+
+            <!-- Sleep Delay -->
+            <TextView
+                android:id="@+id/tv_sleep_delay_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_storage_mode"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/sleep_delay_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_sleep_delay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_storage_mode"
+                android:layout_toRightOf="@id/tv_sleep_delay_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_sleep_delay_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/edit_background"
+                android:imeOptions="actionDone"
+                android:hint="@string/_20min"
+                android:inputType="number"
+                android:textColorHint="#9E9E9E" />
+
+            <Button
+                android:id="@+id/btn_sleep_delay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_storage_mode"
+                android:layout_toRightOf="@id/et_sleep_delay"
+                android:layout_alignBaseline="@id/tv_sleep_delay_title"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/_set" />
+
+            <!-- Box version -->
+            <TextView
+                android:id="@+id/tv_box_version_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_sleep_delay_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/box_version_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_box_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_sleep_delay_title"
+                android:layout_toRightOf="@+id/tv_box_version_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_box_version_title"
+                android:imeOptions="actionDone"
+                android:hint="@string/_null"
+                android:inputType="number"
+                android:textColor="#ffffff"
+                android:textColorHint="#9E9E9E"
+                android:textSize="20sp" />
+
+            <!-- Box SN -->
+            <TextView
+                android:id="@+id/tv_box_sn_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_box_version_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/box_sn_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_box_sn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_box_version_title"
+                android:layout_toRightOf="@+id/tv_box_sn_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_box_sn_title"
+                android:imeOptions="actionDone"
+                android:hint="@string/_null"
+                android:inputType="number"
+                android:textColor="#ffffff"
+                android:textColorHint="#9E9E9E"
+                android:textSize="20sp" />
+
+            <!-- App version name -->
+            <TextView
+                android:id="@+id/tv_app_version_name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_box_sn_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/app_version_name_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_app_version_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_box_sn_title"
+                android:layout_toRightOf="@+id/tv_box_sn_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_app_version_name_title"
+                android:imeOptions="actionDone"
+                android:hint="@string/_null"
+                android:inputType="number"
+                android:textColor="#ffffff"
+                android:textColorHint="#9E9E9E"
+                android:textSize="20sp" />
+
+            <!-- engine number -->
+            <TextView
+                android:id="@+id/tv_engine_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_app_version_name_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/engine_number_title"
+                android:visibility="gone"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_engine_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_app_version_name"
+                android:layout_toRightOf="@id/tv_engine_number_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_engine_number_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/edit_background"
+                android:imeOptions="actionDone"
+                android:hint="@string/_null"
+                android:visibility="gone"
+                android:textColorHint="#9E9E9E" />
+
+            <Button
+                android:id="@+id/btn_engine_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_box_sn"
+                android:layout_toRightOf="@id/et_engine_number"
+                android:layout_alignBaseline="@id/et_engine_number"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                android:text="@string/_set" />
+
+            <!--Odometer-->
+            <TextView
+                android:id="@+id/tv_odometer_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_engine_number_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/odometer_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_odometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_engine_number"
+                android:layout_toRightOf="@id/tv_odometer_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_odometer_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/edit_background"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColorHint="#9E9E9E" />
+
+            <Button
+                android:id="@+id/btn_odometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_engine_number"
+                android:layout_toRightOf="@id/et_odometer"
+                android:layout_alignLeft="@id/btn_sleep_delay"
+                android:layout_alignBaseline="@id/tv_odometer_title"
+                android:layout_alignRight="@id/btn_engine_number"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/_set" />
+
+            <!-- OTA -->
+            <TextView
+                android:id="@+id/tv_ota_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_odometer_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/device_ota_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_device_ota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_odometer"
+                android:layout_toRightOf="@id/tv_ota_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_ota_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/btn_ota_button" />
+
+            <!-- Bus protocol -->
+
+            <TextView
+                android:id="@+id/tv_bus_protocol_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_below="@id/tv_ota_title"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/bus_protocol_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/rgroup_bus_protocol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_ota_title"
+                android:layout_toRightOf="@id/tv_bus_protocol_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                >
+
+                <RadioButton
+                    android:id="@+id/rbtn_j1587"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_bus_protocol_title"
+                    android:layout_alignStart="@id/rbtn_30min"
+                    android:layout_alignRight="@id/rbtn_30min"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/rbtn_j1587"
+                    />
+                <RadioButton
+                    android:id="@+id/rbtn_j1939"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rbtn_j1587"
+                    android:layout_alignBaseline="@id/tv_bus_protocol_title"
+                    android:layout_alignStart="@id/rbtn_1day"
+                    android:layout_alignRight="@id/rbtn_1day"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:checked="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:buttonTint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:text="@string/rbtn_j1939"
+                    />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_bus_protocol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_dtc_title"
+                android:layout_toEndOf="@id/rgroup_bus_protocol"
+                android:layout_alignBaseline="@id/tv_bus_protocol_title"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/_set" />
+
+            <!-- Advanced Settings -->
+            <TextView
+                android:id="@+id/tv_advanced_settings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_bus_protocol_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/advanced_settings"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_cmd_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_bus_protocol_title"
+                android:layout_toRightOf="@id/tv_advanced_settings_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_advanced_settings_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/btn_enter_cmd_mode" />
+
+            <Button
+                android:id="@+id/btn_ptr_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_bus_protocol_title"
+                android:layout_toRightOf="@id/btn_cmd_mode"
+                android:layout_alignStart="@+id/btn_sleep_delay"
+                android:layout_alignBaseline="@id/tv_advanced_settings_title"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/btn_enter_ptr_mode" />
+
+            <!--    ADC & GPIO        -->
+            <TextView
+                android:id="@+id/tv_adc_and_gpio_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_advanced_settings_title"
+                android:layout_marginTop="28dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/adc_and_gpio_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_enter_adc_and_gpio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_advanced_settings_title"
+                android:layout_toRightOf="@id/tv_adc_and_gpio_title"
+                android:layout_alignStart="@id/rgroup_data_sync"
+                android:layout_alignBaseline="@id/tv_adc_and_gpio_title"
+                android:layout_alignRight="@id/btn_export_data"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:text="@string/btn_enter_adc_and_gpio" />
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

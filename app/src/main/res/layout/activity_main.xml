@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
+
+        <ImageView
+            android:id="@+id/iv_bluetooth_connect_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_bluetooth_disabled" />
+
+        <TextView
+            android:id="@+id/tv_vss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_bluetooth_connect_status"
+            android:layout_margin="10dp"
+            android:text="VSS:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_vss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_bluetooth_connect_status"
+            android:layout_toRightOf="@id/tv_vss_title"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_rpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_vss_title"
+            android:layout_margin="10dp"
+            android:text="RPM:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/RPM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_vss_title"
+            android:layout_toRightOf="@id/tv_rpm"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_vin_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_rpm"
+            android:layout_margin="10dp"
+            android:text="VIN:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_vin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_rpm"
+            android:layout_toRightOf="@id/tv_vin_title"
+            android:layout_margin="10dp"
+            android:text="null"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_engine_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_vin"
+            android:layout_margin="10dp"
+            android:text="Engine Code:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/Engine_Code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_vin"
+            android:layout_toRightOf="@id/tv_engine_code"
+            android:layout_margin="10dp"
+            android:text="null"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_engine_hours_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Engine_Code"
+            android:layout_margin="10dp"
+            android:text="Engine Hours:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_engine_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Engine_Code"
+            android:layout_toRightOf="@id/tv_engine_hours_title"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_trip_distance_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_engine_hours"
+            android:layout_margin="10dp"
+            android:text="Trip Distance"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_trip_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_engine_hours"
+            android:layout_toRightOf="@id/tv_trip_distance_title"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_odometer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_trip_distance"
+            android:layout_margin="10dp"
+            android:text="Odometer:"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/tv_odometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_trip_distance"
+            android:layout_toRightOf="@id/tv_odometer_title"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textColor="#9E9E9E" />
+
+        <ImageView
+            android:id="@+id/iv_goto_bluetooth_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_odometer"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_connect_device" />
+
+        <ImageView
+            android:id="@+id/iv_goto_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_odometer"
+            android:layout_toRightOf="@id/iv_goto_bluetooth_connect"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_settings" />
+
+        <ImageView
+            android:id="@+id/iv_goto_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_odometer"
+            android:layout_toRightOf="@id/iv_goto_settings"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_detail" />
+
+        <TextView
+            android:id="@+id/tv_show_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_odometer"
+            android:layout_toRightOf="@id/iv_goto_detail"
+            android:layout_margin="10dp"
+            android:text="timestamp"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/addressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Address"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/locationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Get Current Location"
+            android:textAllCaps="false"
+            android:textSize="19sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.eldbox">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+
+
+    <application
+        android:name="com.android.eldbox.MApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name_serial"
+        android:largeHeap="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.android.eldbox.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name_serial">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name="com.android.eldbox.LoggingActivity"
+            android:exported="true"/>
+        <activity android:name=".factory.WriteSNActivity"
+            android:exported="true"
+            android:label="@string/sn_label"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing">
+        </activity>
+
+        <!-- Ble UI-->
+        <activity
+            android:name="com.android.eldbox.ble_ui.BleUIMainActivity"
+            android:label="@string/app_name_ble"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name="com.android.eldbox.ble_ui.BleConnectActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name="com.android.eldbox.ble_ui.BleSettingsActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.android.eldbox.ble_ui.BleOTAActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name="com.android.eldbox.ble_ui.CmdModeActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+        <activity android:name="com.android.eldbox.ble_ui.BleGpioActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+
+        <!-- Serial UI-->
+        <activity
+            android:name="com.android.eldbox.serial_ui.SerialUIMainActivity"
+            android:exported="true"
+            android:label="@string/app_name_serial"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape">
+        </activity>
+
+
+
+
+
+
+        <activity
+            android:name="com.android.eldbox.serial_ui.SerialSettingsActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.android.eldbox.serial_ui.SerialOTAActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name="com.android.eldbox.serial_ui.CmdModeActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+        <activity android:name="com.android.eldbox.serial_ui.SerialGpioActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+
+        <!-- service-->
+        <service
+            android:name="com.android.eldbox_api.BleService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

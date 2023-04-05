@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <gradient
+                android:angle="270.0"
+                android:endColor="#ffb061"
+                android:startColor="#de7e29" />
+            <!-- 上面就是为了实现渐变颜色 ，下面是点击时圆角的弧度设置。在这里我只是简单的把颜色的顺序颠倒了下，如果有指定的需求，还要按照需求操作-->
+            <corners
+                android:bottomLeftRadius="5.0dip"
+                android:bottomRightRadius="5.0dip"
+                android:radius="2.0dip"
+                android:topLeftRadius="5.0dip"
+                android:topRightRadius="5.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:angle="270.0"
+                android:endColor="#de7e29"
+                android:startColor="#ffb061" />
+
+            <corners
+                android:bottomLeftRadius="5.0dip"
+                android:bottomRightRadius="5.0dip"
+                android:radius="2.0dip"
+                android:topLeftRadius="5.0dip"
+                android:topRightRadius="5.0dip" />
+        </shape>
+    </item>
+</selector>

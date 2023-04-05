@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="32dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <!--    GPIO High or Low     -->
+            <TextView
+                android:id="@+id/tv_gpio_status_group_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gpio_status_group_title"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <!--  line 1 -->
+            <include
+                android:id="@+id/item_gpio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_gpio_status_group_title"
+                android:layout_marginStart="30dp"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_gpio_status_group_title"
+                android:layout_alignBaseline="@id/item_gpio1"
+                android:layout_toRightOf="@id/item_gpio1"
+                android:layout_marginStart="80dp"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 2 -->
+            <include
+                android:id="@+id/item_gpio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio1"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio1"
+                android:layout_alignBaseline="@id/item_gpio3"
+                android:layout_toRightOf="@id/item_gpio3"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 3 -->
+            <include
+                android:id="@+id/item_gpio5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio3"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio3"
+                android:layout_alignBaseline="@id/item_gpio5"
+                android:layout_toRightOf="@id/item_gpio5"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 4 -->
+            <include
+                android:id="@+id/item_gpio7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio5"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio5"
+                android:layout_alignBaseline="@id/item_gpio7"
+                android:layout_toRightOf="@id/item_gpio7"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 5 -->
+            <include
+                android:id="@+id/item_gpio9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio7"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio7"
+                android:layout_alignBaseline="@id/item_gpio9"
+                android:layout_toRightOf="@id/item_gpio9"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 6 -->
+            <include
+                android:id="@+id/item_gpio11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio9"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio9"
+                android:layout_alignBaseline="@id/item_gpio11"
+                android:layout_toRightOf="@id/item_gpio11"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 7 -->
+            <include
+                android:id="@+id/item_gpio13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio11"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio11"
+                android:layout_alignBaseline="@id/item_gpio13"
+                android:layout_toRightOf="@id/item_gpio13"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <!--  line 8 -->
+            <include
+                android:id="@+id/item_gpio15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio13"
+                android:layout_alignStart="@id/item_gpio1"
+                layout="@layout/item_gpio"/>
+
+            <include
+                android:id="@+id/item_gpio16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_gpio13"
+                android:layout_alignBaseline="@id/item_gpio15"
+                android:layout_toRightOf="@id/item_gpio15"
+                android:layout_alignStart="@id/item_gpio2"
+                layout="@layout/item_gpio"/>
+
+            <Button
+                android:id="@+id/btn_get_gpio_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_get_gpio_status"
+                android:textSize="16sp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="10dp"
+                android:layout_alignStart="@id/btn_set_power_output_disable"
+                android:layout_below="@id/item_gpio16" />
+
+            <!--    Power out     -->
+            <TextView
+                android:id="@+id/tv_power_output_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/power_output_group_title"
+                android:layout_alignStart="@id/tv_gpio_status_group_title"
+                android:layout_below="@id/btn_get_gpio_status"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_set_power_output_enable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/power_output_status_enable"
+                android:textSize="16sp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="10dp"
+                android:layout_alignStart="@+id/spin_channel"
+                android:layout_below="@id/tv_power_output_title" />
+
+            <Button
+                android:id="@+id/btn_set_power_output_disable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/power_output_status_disable"
+                android:textSize="16sp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:paddingHorizontal="10dp"
+                android:layout_alignStart="@id/item_gpio16"
+                android:layout_below="@id/tv_power_output_title" />
+
+            <!--    ADC value     -->
+            <TextView
+                android:id="@+id/tv_adc_group_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adc_group_title"
+                android:layout_alignStart="@id/tv_gpio_status_group_title"
+                android:layout_below="@id/btn_set_power_output_enable"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_channel_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/channel_title"
+                android:layout_alignTop="@+id/spin_channel"
+                android:layout_alignBottom="@+id/spin_channel"
+                android:layout_alignBaseline="@+id/spin_channel"
+                android:layout_alignStart="@id/item_gpio1"
+                android:layout_below="@id/tv_adc_group_title"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spin_channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/channel_group"
+                android:spinnerMode="dropdown"
+                android:popupBackground="@android:color/white"
+                android:background="@drawable/spinner_background"
+                android:layout_marginStart="10dp"
+                android:layout_below="@id/tv_adc_group_title"
+                android:layout_toRightOf="@id/tv_channel_title"/>
+
+            <TextView
+                android:id="@+id/tv_reference_voltage_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reference_voltage_title"
+                android:layout_alignTop="@+id/spin_channel"
+                android:layout_alignBottom="@+id/spin_channel"
+                android:layout_alignBaseline="@+id/spin_channel"
+                android:layout_marginStart="30dp"
+                android:layout_below="@id/tv_adc_group_title"
+                android:layout_toRightOf="@id/spin_channel"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_reference_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_alignTop="@+id/spin_channel"
+                android:layout_alignBottom="@+id/spin_channel"
+                android:layout_alignEnd="@+id/btn_get_adc_value"
+                android:layout_alignBaseline="@+id/spin_channel"
+                android:layout_below="@id/tv_adc_group_title"
+                android:layout_toRightOf="@id/tv_reference_voltage_title"
+                android:background="@drawable/edit_background"
+                android:imeOptions="actionDone"
+                android:hint="@string/default_reference_voltage"
+                android:textColorHint="#9E9E9E" />
+
+            <TextView
+                android:id="@+id/tv_unit_volt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unit_volt"
+                android:layout_marginStart="5dp"
+                android:layout_alignBaseline="@+id/spin_channel"
+                android:layout_below="@id/tv_adc_group_title"
+                android:layout_toRightOf="@id/et_reference_voltage"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_adc_value_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adc_value_title"
+                android:layout_alignBaseline="@+id/et_adc_value"
+                android:layout_alignStart="@id/tv_channel_title"
+                android:layout_below="@id/et_reference_voltage"
+                android:layout_toLeftOf="@id/et_adc_value"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_adc_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignStart="@id/spin_channel"
+                android:layout_alignEnd="@id/spin_channel"
+                android:layout_below="@id/et_reference_voltage"
+                android:background="@drawable/edit_background"
+                android:enabled="false"
+                android:imeOptions="actionDone"
+                android:hint="@string/_zero"
+                android:textColorHint="#9E9E9E" />
+
+            <TextView
+                android:id="@+id/tv_unit_volt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unit_volt"
+                android:layout_marginStart="5dp"
+                android:layout_alignBaseline="@+id/et_adc_value"
+                android:layout_below="@id/et_reference_voltage"
+                android:layout_toRightOf="@id/et_adc_value"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_get_adc_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_get_adc_value"
+                android:textSize="16sp"
+                android:background="@drawable/btn_background"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:layout_alignBaseline="@id/et_adc_value"
+                android:paddingHorizontal="10dp"
+                android:layout_alignStart="@id/tv_reference_voltage_title"
+                android:layout_below="@id/et_reference_voltage" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

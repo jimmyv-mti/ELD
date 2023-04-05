@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ELD</string>
+    <string name="app_name_ble">ELD_BLE</string>
+    <string name="app_name_serial">ELD_Serial</string>
+    <string name="app_name_writesn">ELD_WriteSN</string>
+    <string name="refresh_list">refresh List</string>
+    <string name="connecting">connecting</string>
+    <string name="_zero">0</string>
+
+    <string name="listview_dialog_title">Current ELD Data</string>
+    <string name="_return">return</string>
+
+    <!-- Ignition status -->
+    <string name="ignition_on">ON</string>
+    <string name="ignition_off">OFF</string>
+
+    <!-- Netutil-->
+    <string name="open_wifi_setting_title">Turn on network services</string>
+    <string name="open_wifi_setting_content">Network is not connected, can\'t sync time. Please go to the Settings for connect network!</string>
+
+
+    <!-- Log string, no translate-->
+    <string name="_onResume">onResume</string>
+    <string name="_receive">receive</string>
+    <string name="_connect">connect</string>
+    <string name="_disconnect">disconnect</string>
+    <string name="_export_start">export data start</string>
+
+    <!-- Toast -->
+    <string name="toast_wait_when_read_data">Reading data from database,please wait a moment</string>
+    <string name="toast_exit_app">Click Key-Back again to exit</string>
+    <string name="toast_export_data">Export to ELD_Log directory</string>
+    <string name="toast_pick_time_error">End time must bigger then begin time</string>
+    <string name="toast_pick_time_invalid">Invalid time</string>
+    <string name="toast_sleep_time_too_big">Out of limit</string>
+    <string name="toast_input_correct">Please input a correct number</string>
+    <string name="toast_time_sync_success">Time synchronization succeeded</string>
+    <string name="toast_time_sync_fail">Time synchronization failed</string>
+    <string name="toast_time_sync_retry">Time synchronization connection fails, try again later.</string>
+    <string name="toast_time_sync_should_connect_network">Network is not connected, can\'t sync time. Please connect network!</string>
+    <string name="toast_time_sync_should_connect_device">Please connect bluetooth device</string>
+
+    <string name="toast_request_some_failed">Get permission successful, some permissions were not granted normally.</string>
+    <string name="toast_request_denied">Authorization has been permanently denied. Please manually grant permission.</string>
+    <string name="toast_request_failed">Failed to get permission</string>
+
+    <string name="toast_request_data_sync_success">Request data sync,now is start.Please wait</string>
+    <string name="toast_request_data_sync_fail">Fail when request data sync.Please retry</string>
+    <string name="toast_data_sync_success">Data sync complete</string>
+
+    <string name="toast_set_sleep_delay_success">Set sleep delay success</string>
+    <string name="toast_set_sleep_delay_failed">Failed to set sleep delay</string>
+
+    <string name="toast_set_device_sn_success">Set device SN success</string>
+    <string name="toast_set_device_sn_failed">Failed to set device SN</string>
+
+    <string name="toast_send_to_eld_device_invalid">Command is invalid when send to eld device</string>
+
+    <string name="toast_set_work_mode_success">Set work mode success</string>
+    <string name="toast_set_work_mode_failed">Failed to set work mode</string>
+
+    <string name="toast_set_bus_protocol_success">Set bus protocol success</string>
+    <string name="toast_set_bus_protocol_failed">Failed to set bus protocol</string>
+
+    <string name="toast_clear_database_success">Clear database success</string>
+
+    <!-- Settings -->
+    <string name="device">Device</string>
+    <string name="sdcard">sdcard/</string>
+    <string name="setting">Setting</string>
+    <string name="advanced_settings">Advanced</string>
+    <string name="_set">SET</string>
+    <string name="_null">null</string>
+    <string name="_sync">Now is sync</string>
+    <string name="_cancel">Cancel</string>
+    <string name="_ok">OK</string>
+    <string name="_year">(year)</string>
+    <string name="_month">(month)</string>
+    <string name="_day">(day)</string>
+    <string name="_hour">(hour)</string>
+    <string name="_minute">(minute)</string>
+    <string name="_second">(second)</string>
+
+    <!--  High Precision Odometer  -->
+    <string name="high_precision_odometer_title">High Precision Odometer</string>
+
+    <!--  DTC -->
+    <string name="dtc_title">DTC</string>
+    <string name="dtc_show">Show</string>
+    <string name="dtc_clear">Clear</string>
+
+    <!-- Data sync form-->
+    <string name="data_sync_begin_title">Data Sync</string>
+    <!--<string name="_from">from</string>-->
+    <!--<string name="data_sync_begin_button">Begin</string>-->
+    <!--<string name="_to">to</string>-->
+    <!--<string name="data_sync_end_button">End</string>-->
+    <!--<string name="data_sync_dialog_title">Date&amp;Time(Day,Hour,Minute)</string>-->
+    <string name="data_sync_button">Sync</string>
+    <string name="data_synching_button">Synching</string>
+    <string name="data_sync_30min">30 min</string>
+    <string name="data_sync_12hour">12 hour</string>
+    <string name="data_sync_1day">1 day</string>
+    <string name="data_sync_3day">3 day</string>
+    <string name="data_sync_7day">7 day</string>
+    <string name="data_sync_8day">8 day</string>
+
+
+    <!-- time sync setting -->
+    <string name="time_sync_title">Time Sync</string>
+    <string name="timesync_button">Time Sync</string>
+
+    <!--sleep delay -->
+    <string name="sleep_delay_title">Sleep Delay</string>
+    <string name="_20min">20min</string>
+
+    <!-- Export Data Setting-->
+    <string name="export_data_title">Export Data</string>
+    <string name="export_button">Export</string>
+    <string name="default_path">Default Path</string>
+    <string name="storage_mode_title">Storage Mode</string>
+    <string name="always_storage_switch">Always Storage</string>
+    <string name="clear_database">Clear Database</string>
+    <string name="clear_database_dialog_title">Clear database</string>
+    <string name="clear_database_dialog_message">Confirm whether to delete the ELD data stored in the APP database!</string>
+
+    <!-- Box version -->
+    <string name="box_version_title">Box Version</string>
+
+    <!--  Box SN  -->
+    <string name="box_sn_title">Box SN</string>
+
+    <!-- App version   -->
+    <string name="app_version_name_title">App Version</string>
+
+    <!-- Engine number setting-->
+    <string name="engine_number_title">EngineNumber</string>
+    <!--<string name="set_engine_number_button">Set Engine Number</string>-->
+
+    <!--Odometer Setting -->
+    <string name="odometer_title">Odometer</string>
+    <!--<string name="set_odometer_button">Set Odometer</string>-->
+
+    <!-- Advanced Settings -->
+    <string name="btn_enter_cmd_mode">CMD Mode</string>
+    <string name="receive_cmd_title">Receive cmd data</string>
+    <string name="send_cmd_title">Send cmd data</string>
+    <string name="send_cmd">Send</string>
+    <string name="send_hint">F004</string>
+    <string name="exit_cmd_mode_title">Exit cmd mode?</string>
+    <string name="exit_cmd_mode_tip">Confirm that you are exiting cmd mode and you will need to wait 6 to 7 seconds to switch back to ELD mode.</string>
+    <string name="exit_cmd_mode_yes">Yes</string>
+    <string name="exit_cmd_mode_no">No</string>
+    <string name="toast_set_eld_mode">Please wait 7~8 seconds for set ELD mode</string>
+    <string name="btn_enter_ptr_mode">PTR Mode</string>
+    <string name="enter_ptr_mode_dialog_title">Enter Passthrough Mode</string>
+    <string name="enter_ptr_mode_dialog_message">Confirm enter passthrough mode.\nAfter enter, please use another passthrough-mode APP to read the data and save the debug Log</string>
+    <string name="btn_enter_eld_mode">ELD Mode</string>
+    <string name="enter_eld_mode_dialog_title">Enter ELD Mode</string>
+    <string name="enter_eld_mode_dialog_message">Confirm enter eld mode.\nAfter enter, please wait 7~8 seconds for set eld mode</string>
+    <string name="toast_enter_ptr_mode">Enter passthrough mode success</string>
+    <string name="toast_enter_eld_mode">Enter eld mode success</string>
+    
+    <!--  Bus Protocol  -->
+    <string name="bus_protocol_title">Bus Protocol</string>
+    <string name="rbtn_j1587">J1587</string>
+    <string name="rbtn_j1939">J1939</string>
+
+    <!-- OTA Setting -->
+    <string name="device_ota_title">Device OTA</string>
+    <string name="btn_ota_button">OTA</string>
+
+    <!-- OTA -->
+    <string name="ota_no_device">no device connected</string>
+    <string name="btn_start_ota">Start OTA</string>
+    <string name="btn_open_ota_file">Open File</string>
+    <string name="ota_device_name_title">Device Name</string>
+    <string name="ota_file_name_title">OTA File Name</string>
+    <string name="ota_file_version">Please select a file</string>
+    <string name="ota_file_no_found">File unavailible</string>
+    <string name="ota_status_title">OTA Status</string>
+    <string name="ota_progress_title">OTA Progress</string>
+
+    <!-- change device sn-->
+    <string name="sn_label">Write Device SN</string>
+    <string name="sn_title">Device SN</string>
+    <string name="confirm_title">Confirm</string>
+    <string name="sn_hint">Scan the ELD device barcode to enter the SN code.</string>
+    <string name="confirm_hint">Scan a random barcode to confirm the input SN.</string>
+    <string name="_change">Change</string>
+    <string name="clear">Clear</string>
+    <string name="_pass">Pass</string>
+    <string name="_error">Error</string>
+    <string name="success_title">！！！！！！！！写入串码成功！！！！！！！！</string>
+    <string name="fail_title">！！！！！！！！写入串码失败！！！！！！！！</string>
+
+    <!-- Toast -->
+    <string name="toast_change_success">SN code was successfully modified</string>
+    <string name="toast_change_fail">Failed to modify SN code, please try again</string>
+    <string name="toast_sn_error">SN code input error, please check sN format, the current length limit is 32</string>
+
+    <!--  Gpio & Adc  -->
+    <string name="adc_and_gpio_title">Adc &amp; Gpio</string>
+    <string name="btn_enter_adc_and_gpio">Enter</string>
+
+    <string name="gpio_status_group_title">Gpio Status</string>
+    <string name="btn_get_gpio_status">Get GPIO status</string>
+
+    <string name="gpio_title">GPIO1</string>
+    <string-array name="gpio_group">
+        <item>GPIO1</item>
+        <item>GPIO2</item>
+        <item>GPIO3</item>
+        <item>GPIO4</item>
+        <item>GPIO5</item>
+        <item>GPIO6</item>
+        <item>GPIO7</item>
+        <item>GPIO8</item>
+        <item>GPIO9</item>
+        <item>GPIO10</item>
+        <item>GPIO11</item>
+        <item>GPIO12</item>
+        <item>GPIO13</item>
+        <item>GPIO14</item>
+        <item>GPIO15</item>
+        <item>GPIO16</item>
+    </string-array>
+
+    <string name="gpio_status_high">High</string>
+    <string name="gpio_status_low">Low</string>
+
+    <string name="power_output_group_title">Power Out</string>
+    <string name="power_output_status_enable">Enable</string>
+    <string name="power_output_status_disable">Disable</string>
+
+    <string name="adc_group_title">ADC Value</string>
+    <string name="channel_title">Channel</string>
+    <string-array name="channel_group">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="reference_voltage_title">Vref</string>
+    <string name="default_reference_voltage">3.36</string>
+    <string name="adc_value_title">Value</string>
+    <string name="unit_volt">V</string>
+    <string name="btn_get_adc_value">Get Adc value</string>
+
+    <string name="toast_set_gpio_high_success">Set gpio high success</string>
+    <string name="toast_set_gpio_high_failed">Failed to set gpio high</string>
+
+    <string name="toast_set_gpio_low_success">Set gpio low success</string>
+    <string name="toast_set_gpio_low_failed">Failed to set gpio low</string>
+
+    <string name="toast_set_power_output_success">Set power output success</string>
+    <string name="toast_set_power_output_failed">Failed to set power output</string>
+
+    <string name="toast_reference_voltage_more_than_zero">Reference voltage must more than zero</string>
+
+</resources>
