@@ -99,6 +99,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.location.LocationRequest;
 
+import com.google.android.material.snackbar.Snackbar;
+
 /**
  *
  * @ProjectName:
@@ -146,6 +148,7 @@ public class SerialUIMainActivity extends AppCompatActivity {
 
     private static int preOdometer = 0;
     private String preVin = "";
+    private String testString = "";
     public static boolean isConnect = false;
     long lastClick = 0;
     boolean hasSyncTime = false;//Whether the time has been synchronized
@@ -176,6 +179,10 @@ public class SerialUIMainActivity extends AppCompatActivity {
 
     private static final String CHANNEL_ID = "channel_01";
 
+    private FusedLocationProviderClient fusedLocationClient;
+
+    private LocationCallback locationCallback;
+
 
 
 
@@ -192,7 +199,7 @@ public class SerialUIMainActivity extends AppCompatActivity {
         else
             openSerialPort();//for serial_ui
 
-        requestPermission();
+        //requestPermission();
         init();
 
         mLocationCallback = new LocationCallback() {
@@ -206,6 +213,33 @@ public class SerialUIMainActivity extends AppCompatActivity {
 
         startLocationUpdates();
         //  getCurrentLocation();
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(2*5000);
+
+        locationCallback=new LocationCallback(){
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) {
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    // if (location != null) {
+
+
+                    String Lat = String.valueOf(location.getLatitude());
+                    String Lon = String.valueOf(location.getLongitude());
+
+                    //Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "latsnack: " +Lat + " - " + "lat: " + Lon, Snackbar.LENGTH_LONG);
+                    //snackbar.show();
+
+                    Toast.makeText(getApplicationContext(), "lat: " +Lat + " - " + "lat: " + Lon, Toast.LENGTH_LONG).show();
+                    //    }
+                }
+            }
+        };
     }
 
     @Override
@@ -336,10 +370,7 @@ public class SerialUIMainActivity extends AppCompatActivity {
             return null;
         }
 
-
-
-        mFusedLocationClient.requestLocationUpdates(mLocationRequest,
-                mLocationCallback, Looper.myLooper());
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
@@ -360,6 +391,37 @@ public class SerialUIMainActivity extends AppCompatActivity {
         return null;
     }
 
+
+
+
+
+
+
+
+    private void startLocationUpdatesNew() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    Activity#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for Activity#requestPermissions for more details.
+                return;
+            }
+        }
+        fusedLocationClient.requestLocationUpdates(locationRequest,
+                locationCallback,
+                Looper.getMainLooper());
+    }
+
+
+
+    private void stopLocationUpdates() {
+        fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
+
     private void onNewLocation(Location location) {
         Log.i(TAG, "New location: " + location);
 
@@ -367,7 +429,7 @@ public class SerialUIMainActivity extends AppCompatActivity {
 
         // Notify anyone listening for broadcasts about the new location.
         Intent intent = new Intent(ACTION_BROADCAST);
-        intent.putExtra(EXTRA_LOCATION, location);
+        intent.putExtra(EXTRA_LOCATION, location + "doh");
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
 
         // Update notification content if running as a foreground service.
@@ -442,6 +504,9 @@ public class SerialUIMainActivity extends AppCompatActivity {
     }
 
     private void getAddress(Location location) {
+
+        testString = location.getProvider();
+
     }
 
 
@@ -1259,57 +1324,9 @@ public class SerialUIMainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        Log.i(TAG, getString(R.string._onResume));
-        if (!isConnect) {//断开时总里程置0  Odometer set zero when bluetooh disconnected
-            preOdometer = 0;
-            mTvOdometer.setText(StringUtil.sZero);
-        }
-        //SyncTimeWhenConnectNetwork();//hjh 20190921 add for sync time
-        SyncTimeFromTablet();
-
-        DBUtils.queryLastOneData(getApplication(), new DBUtils.OnGetLastOneListener() {
-            @Override
-            public void onGetLastOne(final List<ELD_DATA> list) {
-                // TODO: 8/21/2019 从数据库读取总里程  Read odometer from the database
-                if (list.size() > 0) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            //直接读取1939的总里程 Read the odometer of 1939 directly
-                            if (list.get(0).Odometer != 0) {
-                                preOdometer = list.get(0).Odometer;
-                                mTvOdometer.setText(preOdometer + "");
-                            }
-                        }
-                    });
-                }
-            }
-        });
-
-
-        DBUtils.queryLastOneData_inSMB(getApplication(), new DBUtils.OnGetSMBLastOneListener() {
-            @Override
-            public void onGetLastOne(final List<StaticMessage> list) {
-                // TODO: 8/21/2019 如果数据库读取的总里程为空，使用用户输入的总里程。
-                // If the odometer read from the database is empty, use the odometer entered by the user.
-                if (list.size() > 0) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            //避免1939读取的总里程被覆盖,OBD的总里程手动写入
-                            // Avoid the odometer read by 1939 is overwritten, if value is zeor,the odometer of OBD is manually written
-                            if (mTvOdometer.getText().equals("0"))
-                                mTvOdometer.setText(String.valueOf(list.get(0).Odometer_For_OBD));
-
-                            mTvVin.setText(String.valueOf(list.get(0).VIN));
-                            //hjh 2019-08-30 remove because view visbility set gone
-                            //mTvEngineNumber.setText(String.valueOf(list.get(0).Engine_Number));
-                        }
-                    });
-                }
-            }
-        });
         super.onResume();
+        startLocationUpdatesNew();
+
     }
 
     /**
@@ -1384,6 +1401,10 @@ public class SerialUIMainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        stopLocationUpdatesNew();
+    }
+    private void stopLocationUpdatesNew() {
+        fusedLocationClient.removeLocationUpdates(locationCallback);
     }
 
     @Override
